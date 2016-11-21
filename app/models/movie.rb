@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
   
   def self.similar_movies id
     director = Movie.find(id).director
-    return nil unless director
+    return nil if director.nil?
     Movie.where(director: director)
   end
 end
